@@ -1,8 +1,8 @@
 from telegram import Bot, Update
 from telegram.ext import Updater, MessageHandler, Filters
 
-token = '1374974135:AAG0x_qqI5LyD7IWfu6VjmTgLrthws2uKig' #TOKEN_bot
-admin_id = '460353927' #My ID
+token = '' #TOKEN_bot
+admin_id = '' #My ID
 
 def message_handler(bot: Bot, update: Update):
     user = update.effective_user
