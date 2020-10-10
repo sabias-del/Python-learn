@@ -1,8 +1,9 @@
 from telegram import Bot, Update
 from telegram.ext import Updater, MessageHandler, Filters
 
-token = '' #TOKEN_bot
-admin_id = '' #My ID
+token = ''  # TOKEN_bot
+admin_id = ''  # My ID
+
 
 def message_handler(bot: Bot, update: Update):
     user = update.effective_user
@@ -18,6 +19,7 @@ def message_handler(bot: Bot, update: Update):
     )
     return
 
+
 def main():
     bot = Bot(
         token
@@ -31,5 +33,7 @@ def main():
     updater.start_polling()
 
     updater.idle()
+
+
 if __name__ == '__main__':
     main()

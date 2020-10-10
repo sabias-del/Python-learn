@@ -1,4 +1,4 @@
-name = 'Swaroop' # Это объект строки
+name = 'Swaroop'  # Это объект строки
 
 if name.startswith("Swa"):
     print("Да, строка начинается с 'Swa'")

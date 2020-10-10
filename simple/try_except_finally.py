@@ -1,7 +1,8 @@
 import time
+
 try:
     f = open('poem.txt')
-    while True: # обычный способ чтения файлов
+    while True:  # обычный способ чтения файлов
         line = f.readline()
         if len(line) == 0:
             break

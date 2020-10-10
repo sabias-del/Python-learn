@@ -1,14 +1,15 @@
 from math import *
-n = int (input("Введите диапазон"))
-p = [2,3]
+
+n = int(input("Введите диапазон"))
+p = [2, 3]
 count = 2
 a = 5
-while (count<n):
-    b=0
-    for i in range(2,a):
+while (count < n):
+    b = 0
+    for i in range(2, a):
         if (i <= sqrt(a)):
             if (a % i == 0):
-                print(a,"непростое")
+                print(a, "непростое")
                 b = 1
             else:
                 pass

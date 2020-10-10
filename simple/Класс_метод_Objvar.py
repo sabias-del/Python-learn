@@ -10,7 +10,7 @@ class Robot:
         print('(Иницилизация {0})'.format(self.name))
 
         # При создание личности робот добавляется к переменной популяции.
-        Robot.population+=1
+        Robot.population += 1
 
     def __del__(self):
         '''Я умираю'''
@@ -31,7 +31,9 @@ class Robot:
     def howMany():
         """Выводит численность роботов"""
         print("У нас роботов {0:d}.".format(Robot.population))
+
     howMany = staticmethod(howMany)
+
 
 droid1 = Robot("Р2-Д2")
 droid1.sayHi()

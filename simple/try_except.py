@@ -1,4 +1,3 @@
-
 try:
     text = input("Введите что то: ")
 except EOFError:

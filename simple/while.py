@@ -8,7 +8,7 @@ while running:
     if guess == number:
         print("Поздравляю Вы Угадали!!!")
         running = False
-    elif guess<number:
+    elif guess < number:
         print("Холодно, больше !")
     else:
         print("Жарко, меньше !")

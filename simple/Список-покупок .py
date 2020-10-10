@@ -1,11 +1,11 @@
-#Это мой список покупок
+# Это мой список покупок
 
 shoplist = ['яблоки', 'бублик', 'морковь', 'свеклу', "бананы"]
 print("я должен сделать", len(shoplist), "покупки.")
 
 print("Покупки:", end="")
 for item in shoplist:
-    print(item,"", end="")
+    print(item, "", end="")
 
 print('\nТакже нужно купить риса.')
 shoplist.append("рис")
@@ -20,4 +20,3 @@ olditem = shoplist[0]
 del shoplist[0]
 print('Я купил', olditem)
 print("Теперь мой список:", shoplist)
-
