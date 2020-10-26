@@ -1,35 +1,19 @@
+import telebot
 import config
-import logging
-import asyncio
-from datetime import datetime
-
-from aiogram import Bot, Dispatcher, executor, types
-from sqlighter import SQLighter
-
-# Задание уровень логов бота
-logging.basicConfig(level=logging.INFO)
-
-# Запуск бота
-bot = Bot(token = config.Token)
-dp = Dispatcher(bot)
-# Соединение с ДБ
-db = SQLighter('db.db')
-# Команда активации подписки
-@dp.message_handler(commands=['subscribe'])
-async def subscribe(message: types.Message):
-    if(not db.subscriber_exists(message.from_user.id)):
-        # если его там нету то создаем запись
-        db.add_subscriber(message.from_user.id)
-    else:
-        # если он уже есть, то просто обновляем ему статус подписки
-        db.update_subscribeption(message.from_user.id, True)
-
-    await message.answer("Вы уже подписывались на рассылку!")
-
-# Эхобот
-@dp.message_handler()
-async def echo(message: types.Message):
-    await message.answer(message.text)
-
-if __name__ == '__main__':
-    executor.start_polling(dp, skip_updates=True)
+token = config.Token
+# бот модуль телебот + команда что это бот и токен нашего бота
+bot = telebot.TeleBot(token)
+# вызов класса телебота после отправки команды старат
+@bot.message_handler(commands=['start'])
+# начать отправлять сообщение после команды старт
+def start(message):
+    # сент  = бот + отправка собщения любому id text >
+    sent = bot.send_message(message.chat.id, 'Как тебя зовут? ')
+    # бот регеструет команду и отпрвляет сообщение новому пользователю
+    bot.register_next_step_handler(sent, hello)
+# создаем функцию самого привествия
+def hello(message):
+    # бот отправляет сообщение на новый ид
+    bot.send_message(message.chat.id, 'Привет, {name}. Рад тебя видеть.'.format(name=message.text))
+# запуск бота
+bot.polling()
